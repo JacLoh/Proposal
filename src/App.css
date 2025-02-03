@@ -1,11 +1,25 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: Arial, sans-serif;
+}
+
+
 .proposal-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to right, #ff758c, #ff7eb3);
   text-align: center;
+  padding: 20px;
   animation: fadeIn 1.5s ease-in-out;
 }
 
@@ -13,27 +27,33 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
-  .proposal-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  }
 
+
+.proposal-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  animation: popUp 0.5s ease-out forwards;
+}
 
 @keyframes popUp {
   from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
 
-.proposal-title, .celebration-title {
+
+.proposal-title,
+.celebration-title {
   font-family: 'Pacifico', cursive;
   color: #ff4081;
   text-shadow: 2px 2px 8px rgba(255, 64, 129, 0.3);
+  margin-bottom: 10px;
 }
+
 
 .fancy-button {
   font-size: 22px;
@@ -45,6 +65,7 @@
   background: linear-gradient(to right, #ff4081, #e60073);
   color: white;
   box-shadow: 0px 4px 10px rgba(255, 64, 129, 0.3);
+  margin: 10px;
 }
 
 .fancy-button:hover {
@@ -53,13 +74,16 @@
   box-shadow: 0px 6px 15px rgba(255, 64, 129, 0.4);
 }
 
+
 .animated-card {
   background: #fff3e0;
-  padding: 25px;
+  padding: 35px;
   border-radius: 15px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
   animation: bounceIn 1.2s ease-in-out;
+  height:220px;
+  line-height:30px;
 }
 
 @keyframes bounceIn {
@@ -72,35 +96,31 @@
   font-weight: bold;
   color: #ff4081;
   text-shadow: 1px 1px 5px rgba(255, 64, 129, 0.3);
+  margin-bottom: 10px;
+  text-align: center;
 }
+
+
 .letter-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   cursor: pointer;
+  padding: 20px;
 }
 
-.letter {
-  background: #fff;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
+.letter-image {
+  width: 100px; 
+  height: auto;
+  transition: transform 0.5s ease-in-out;
 }
 
-.letter-text {
-  font-size: 20px;
-  font-weight: bold;
-  color: #ff4081;
+.letter-wrapper:hover .letter-image {
+  transform: scale(1.05);
 }
 
-.photo-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
+
 .top-photo-container {
   display: flex;
   justify-content: center;
@@ -113,57 +133,19 @@
   border-radius: 10px;
   object-fit: cover;
 }
+
+.proposal-content {
+  width: 100%;
+}
+
 .side-photo-container {
   display: flex;
   align-items: center;
   gap: 20px;
-}
-.letter-wrapper {
-  display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  cursor: pointer;
+  flex-wrap: wrap;
 }
 
-.letter-envelope {
-  position: relative;
-  width: 250px;
-  height: 180px;
-  background: #ffcccb;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
-
-.letter-flap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background: #ff9999;
-  border-radius: 10px 10px 0 0;
-}
-
-.letter-content {
-  position: absolute;
-  top: 50px;
-  left: 0;
-  width: 100%;
-  height: 130px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: #ff4081;
-}
-.letter-image {
-  width: 300px;
-  height: auto;
-  transition: transform 0.5s ease-in-out;
-}
 .side-photo {
   width: 120px;
   height: auto;
@@ -171,9 +153,7 @@
   border-radius: 10px;
   object-fit: cover;
 }
-.letter-wrapper:hover .letter-image {
-  transform: scale(1.05);
-}
+
 .photo {
   width: 150px;
   height: auto;
@@ -181,9 +161,51 @@
   border-radius: 10px;
   object-fit: cover;
 }
+
 .proposal-layout {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+
+@media (max-width: 768px) {
+  .fancy-button {
+    font-size: 18px;
+    padding: 12px 20px;
+    margin: 8px;
+  }
+  
+  .proposal-title,
+  .celebration-title {
+    font-size: 1.8rem;
+  }
+  
+  .invitation-title {
+    font-size: 22px;
+  }
+  
+  .top-photo {
+    width: 120px;
+  }
+  
+  .side-photo {
+    width: 100px;
+    max-height: 140px;
+  }
+  
+  .proposal-box {
+    width: 90%;
+    padding: 15px;
+  }
+  
+  .letter-image {
+    width: 150px;
+  }
+}
+
+.invitation-card{
+  text-align: left;
+  
 }
